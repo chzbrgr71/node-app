@@ -1,0 +1,41 @@
+{
+  "id": "/node-app",
+  "cmd": null,
+  "cpus": 0.25,
+  "mem": 128,
+  "disk": 0,
+  "instances": 1,
+  "acceptedResourceRoles": [
+    "slave_public"
+  ],
+  "container": {
+    "type": "DOCKER",
+    "volumes": [],
+    "docker": {
+      "image": "chzbrgr71/node-app",
+      "network": "BRIDGE",
+      "portMappings": [
+        {
+          "containerPort": 8000,
+          "hostPort": 80,
+          "servicePort": 10000,
+          "protocol": "tcp",
+          "name": "www",
+          "labels": {
+            "VIP_0": "80"
+          }
+        }
+      ],
+      "privileged": false,
+      "parameters": [],
+      "forcePullImage": false
+    }
+  },
+  "portDefinitions": [
+    {
+      "port": 10000,
+      "protocol": "tcp",
+      "labels": {}
+    }
+  ]
+}
