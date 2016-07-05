@@ -17,12 +17,11 @@
       "portMappings": [
         {
           "containerPort": 8000,
-          "hostPort": 80,
-          "servicePort": 10001,
+          "hostPort": 0,
+          "servicePort": 10010,
           "protocol": "tcp",
           "name": "www",
           "labels": {
-            "VIP_0": "80"
           }
         }
       ],
@@ -31,9 +30,12 @@
       "forcePullImage": true
     }
   },
+  "labels": {
+    "HAPROXY_GROUP": "external"
+  },
   "portDefinitions": [
     {
-      "port": 10000,
+      "port": 10010,
       "protocol": "tcp",
       "labels": {}
     }
